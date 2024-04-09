@@ -465,13 +465,13 @@ class Aps {
 
   Map<String, Object?> _toProto() {
     return {
-      'alert': alert?._toProto(),
-      'badge': badge,
-      'sound': sound?._toProto(),
-      'content-available': contentAvailable,
-      'mutable-content': mutableContent,
-      'category': category,
-      'thread-id': threadId,
+      if (alert!=null) 'alert': alert?._toProto(),
+      if (badge!=null) 'badge': badge,
+      if (sound!=null) 'sound': sound?._toProto(),
+      if (contentAvailable!=null && contentAvailable!) 'content-available': 1,
+      if (mutableContent!=null && mutableContent!) 'mutable-content': 1,
+      if (category!=null) 'category': category,
+      if (threadId!=null) 'thread-id': threadId,
     };
   }
 }
@@ -505,17 +505,17 @@ class ApsAlert {
 
   Map<String, Object?> _toProto() {
     return {
-      'title': title,
-      'subtitle': subtitle,
-      'body': body,
-      'loc-key': locKey,
-      'loc-args': locArgs,
-      'title-loc-key': titleLocKey,
-      'title-loc-args': titleLocArgs,
-      'subtitle-loc-key': subtitleLocKey,
-      'subtitle-loc-args': subtitleLocArgs,
-      'action-loc-key': actionLocKey,
-      'launch-image': launchImage,
+      if (title!=null) 'title': title,
+      if (subtitle!=null) 'subtitle': subtitle,
+      if (body!=null) 'body': body,
+      if (locKey!=null) 'loc-key': locKey,
+      if (locArgs!=null) 'loc-args': locArgs,
+      if (titleLocKey!=null) 'title-loc-key': titleLocKey,
+      if (titleLocArgs!=null) 'title-loc-args': titleLocArgs,
+      if (subtitleLocKey!=null) 'subtitle-loc-key': subtitleLocKey,
+      if (subtitleLocArgs!=null) 'subtitle-loc-args': subtitleLocArgs,
+      if (actionLocKey!=null) 'action-loc-key': actionLocKey,
+      if (launchImage!=null) 'launch-image': launchImage,
     };
   }
 }
@@ -539,9 +539,9 @@ class CriticalSound {
 
   Map<String, Object?> _toProto() {
     return {
-      'critical': critical,
-      'name': name,
-      'volume': volume,
+      if (critical!=null && critical!) 'critical': 1,
+      if (name!=null) 'name': name,
+      if (volume!=null) 'volume': volume,
     };
   }
 }
